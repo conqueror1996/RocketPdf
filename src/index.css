@@ -1,0 +1,106 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Premium UI custom styles --- */
+
+/* subtle floating animation for shuttle (keeps framer motion for motion but fallback CSS too) */
+@keyframes shuttle-float {
+  0% { transform: translateY(0) rotate(-5deg); opacity: 0.96 }
+  50% { transform: translateY(-6px) rotate(5deg); opacity: 1 }
+  100% { transform: translateY(0) rotate(-5deg); opacity: 0.96 }
+}
+
+.shuttle-float { animation: shuttle-float 3.6s ease-in-out infinite; }
+.shuttle-glow { filter: drop-shadow(0 12px 30px rgba(99,102,241,0.08)) drop-shadow(0 4px 10px rgba(0,0,0,0.05)); }
+
+/* glass / frosted card */
+.glass-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 20px rgba(11,15,18,0.04);
+}
+
+/* border + glass variation used on the right panel */
+.glass-card-border {
+  background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.28));
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(15,23,42,0.04);
+}
+
+/* larger glass section look */
+.glass-section {
+  background: linear-gradient(180deg, rgba(250,250,250,0.6), rgba(250,250,255,0.35));
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+}
+
+/* premium button style */
+.premium-btn {
+  padding: .5rem .9rem;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(99,102,241,1), rgba(139,92,246,1));
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(99,102,241,0.12);
+  border: none;
+}
+
+/* small action pills */
+.action-pill {
+  padding: .45rem .9rem;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));
+  border: 1px solid rgba(15,23,42,0.04);
+  font-size: .9rem;
+}
+
+/* icon background */
+.glass-icon {
+  background: linear-gradient(135deg, rgba(79,70,229,0.12), rgba(139,92,246,0.1));
+  box-shadow: 0 8px 30px rgba(99,102,241,0.06);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* subtle dark theme adjustments (if using dark mode) */
+@media (prefers-color-scheme: dark) {
+  .glass-card, .glass-card-border {
+    background: linear-gradient(180deg, rgba(15,23,42,0.48), rgba(15,23,42,0.28));
+    border: 1px solid rgba(255,255,255,0.03);
+  }
+  .action-pill {
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.03);
+    color: #d1d5db;
+  }
+}
+/* optional stylesheet additions */
+.rp-delete-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  font-size: 12px;
+  padding: 0;
+}
+
+/* utility tweaks for small screens */
+@media (max-width: 640px) {
+  .glass-section { padding: 1rem; }
+}
